@@ -1,0 +1,1 @@
+export const USER_MIN_LENGTH: number = 3;
