@@ -1,10 +1,5 @@
 import React from 'react';
-
-interface IInput {
-  type: string;
-  name: string;
-  func: Function;
-}
+import { IInput } from '../types/input';
 
 export default function Input(props: IInput) {
   return (
