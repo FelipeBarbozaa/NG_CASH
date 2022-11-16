@@ -26,11 +26,12 @@ export default function Register() {
 
   return (
     <>
-      <form onSubmit={(event) => handleSubmit(event) }>
-        <Input type="text" name="user" func={ handleData } />
-        <Input type="password" name="password" func={ handleData} />
-        <Input type="password" name="repassword" func={ handleData} />
-        <button disabled={ disabled }>Register</button>
+      <form className="form-login" onSubmit={(event) => handleSubmit(event) }>
+        <Input className="login-input" type="text" name="user" func={ handleData } />
+        <Input className="login-input" type="password" name="password" func={ handleData} />
+        <Input className="login-input" type="password" name="repassword" func={ handleData} />
+        <button className="btn draw-border" disabled={ disabled }>Register</button>
+        <a href="/login">Login</a>
       </form>
     </>
   );

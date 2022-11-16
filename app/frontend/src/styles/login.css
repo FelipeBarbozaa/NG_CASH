@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mende+Kikakui&display=swap');
+
+body {
+  background-image: url("../images/background.jpg");
+  background-size: cover;
+  background-position: center center;
+  min-height: 100vh;  
+}
+
+.login-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+.form-login {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%)
+}
+
+.font-noto-sans {
+  font-family: 'Noto Sans Mende Kikakui', sans-serif;
+}
+
+.section-login {
+  position: absolute;
+  color: white;
+  margin-top: 25px;
+  margin-left: 25px;
+}
+
+.section-login > h1 {
+  font-size: 2.5rem;
+  font-weight: 650;
+  margin-bottom: 12px;
+}
+
+.section-login > h2 {
+  font-size: 1.9rem;
+  font-weight: 450;
+}
+
+.app-image {
+  margin-top: 25px;
+  margin-right: 20px;
+}
+
+.login-input { 
+  padding: 5px 12px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #24292e;
+  vertical-align: middle;
+  background-color: #ffffff;
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  border: 1px solid #e1e4e8;
+  outline: none;
+  width: 250px;
+  margin-top: 5px;
+  height: 20px;
+  box-shadow: rgba(225, 228, 232, 0.2) 0px 1px 0px 0px inset;
+}:focus{
+  border-color: #0366d6;
+  outline: none;
+  box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+}
+
+.login-button {
+  margin-top: 5px;
+  display: inline-block;
+  outline: 0;
+  text-align: center;
+  cursor: pointer;
+  padding: 0px 16px;
+  border-radius: 2px;
+  min-width: 80px;
+  height: 32px;
+  background-color: rgb(0, 120, 212);
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  font-weight: 400;
+  box-sizing: border-box;
+  border: 1px solid rgb(0, 120, 212);
+}
+
+.form-login > a {
+  margin-top: 15px;
+  font-size: 1.3rem;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+}
+
+.btn {
+  margin-top: 5px;
+  width: 100%;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  line-height: 1.5;
+  font: 700 1.2rem "Roboto Slab", sans-serif;
+  letter-spacing: 0.05rem;
+}
+.btn:focus {
+  outline: 2px dotted #55d7dc;
+}
+
+.draw-border {
+  box-shadow: inset 0 0 0 4px #b9c4c9;
+  color: #b9c4c9;
+  transition: color 0.25s 0.0833333333s;
+  position: relative;
+}
+.draw-border::before, .draw-border::after {
+  border: 0 solid transparent;
+  box-sizing: border-box;
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  width: 0;
+  height: 0;
+  bottom: 0;
+  right: 0;
+}
+.draw-border::before {
+  border-bottom-width: 4px;
+  border-left-width: 4px;
+}
+.draw-border::after {
+  border-top-width: 4px;
+  border-right-width: 4px;
+}
+.draw-border:enabled {
+  color: #2a9210;
+}
+.draw-border:enabled::before, .draw-border:enabled::after {
+  border-color: #2a9210;
+  transition: border-color 0s, width 0.25s, height 0.25s;
+  width: 100%;
+  height: 100%;
+}
+.draw-border:enabled::before {
+  transition-delay: 0s, 0s, 0.25s;
+}
+.draw-border:enabled::after {
+  transition-delay: 0s, 0.25s, 0s;
+}
+
+@media screen and (max-device-width: 640px) {
+  .section-login > h1 {
+    font-size: 1.5rem;
+  }
+  .section-login > h2 {
+    font-size: 1.2rem;
+  }
+  .app-image {
+    width: 40%;
+  }
+}
