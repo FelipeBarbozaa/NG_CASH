@@ -8,6 +8,7 @@ const config: Options = {
   host: process.env.PGHOST,
   port: Number(process.env.PGPORT),
   dialect: 'postgres',
+  omitNull: true,
 };
 
 export = config;

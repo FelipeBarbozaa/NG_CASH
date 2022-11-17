@@ -3,12 +3,12 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('accounts', {
       id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING(50),
         primaryKey: true,
         allowNull: false,
         references: {
           model: 'users',
-          key: 'id',
+          key: 'account_id',
         }
       },
       balance: { type: Sequelize.DECIMAL(), allowNull: false }

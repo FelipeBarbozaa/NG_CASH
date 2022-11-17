@@ -1,4 +1,4 @@
-import { Model, INTEGER, DATE, DECIMAL } from 'sequelize';
+import { Model, STRING, DATE, DECIMAL } from 'sequelize';
 import db from '.';
 
 class Transaction extends Model {
@@ -11,18 +11,17 @@ class Transaction extends Model {
 
 Transaction.init({
 	id: {
-		type: INTEGER,
+		type: STRING(50),
 		primaryKey: true,
-		autoIncrement: true,
 		allowNull: false,
 	},
 	debitedAccountId: {
-		type: INTEGER,
+		type: STRING(50),
 		allowNull: false,
     field: 'debited_account_id'
 	},
 	creditedAccountId: {
-		type: INTEGER,
+		type: STRING(50),
 		allowNull: false,
     field: 'credited_account_id'
 	},

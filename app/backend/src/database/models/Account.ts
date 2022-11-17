@@ -1,4 +1,4 @@
-import { Model, INTEGER, DECIMAL } from 'sequelize';
+import { Model, DECIMAL, STRING } from 'sequelize';
 import db from '.';
 // // import User from './User';
 
@@ -9,10 +9,9 @@ class Account extends Model {
 
 Account.init({
   id: {
-    type: INTEGER,
+    type: STRING(50),
     allowNull: false,
     primaryKey: true,
-    autoIncrement: true,
   },
   balance: {
     type: DECIMAL(),

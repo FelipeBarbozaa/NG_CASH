@@ -1,4 +1,4 @@
-import { Model, INTEGER, STRING } from 'sequelize';
+import { Model, STRING } from 'sequelize';
 import db from '.';
 
 class User extends Model {
@@ -10,10 +10,9 @@ class User extends Model {
 
 User.init({
   id: {
-    type: INTEGER,
+    type: STRING(50),
     allowNull: false,
     primaryKey: true,
-    autoIncrement: true,
   },
   username: {
     type: STRING(50),
@@ -27,7 +26,7 @@ User.init({
   accountId: {
     allowNull: false,
     unique: true,
-    type: INTEGER,
+    type: STRING(50),
     field: 'account_id',
   },
 }, {
