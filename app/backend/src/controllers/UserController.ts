@@ -6,9 +6,15 @@ export default class UserController {
 
   async createUser(req: Request, res: Response) {
     const { username, password, repassword } = req.body;
-    await this.userService.createUser(
+    const response = await this.userService.createUser(
       { username, password, repassword }
     );
-    return res.status(201).end();
+    return res.status(201).json({ token: response });
+  }
+
+  async tryLogin(req: Request, res: Response) {
+    const { username, password } = req.body;
+    const response = await this.userService.login({username, password});
+    return res.status(200).json(response);
   }
 }

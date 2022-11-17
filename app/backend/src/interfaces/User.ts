@@ -8,6 +8,11 @@ export type RegisterData = {
   accountId?: string;
 }
 
+export type LoginData = {
+  username: string;
+  password: string;
+}
+
 
 export interface IUserModel {
   getByUser(user: string): Promise<User | null>;
@@ -16,4 +21,5 @@ export interface IUserModel {
 
 export interface IUserService {
   createUser(data: RegisterData): Promise<string>;
+  login(data: LoginData): Promise<string>;
 }
