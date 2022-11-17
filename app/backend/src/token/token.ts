@@ -6,6 +6,7 @@ type JwtReturn = {
   id?: number;
   username?: string;
   accountId?: string;
+  type?: string;
 }
 
 export default class Token {

@@ -162,3 +162,9 @@ body {
     width: 40%;
   }
 }
+
+.error-message {
+  text-align: center;
+  margin-bottom: 10px;
+  color: red;
+}

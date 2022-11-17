@@ -15,6 +15,6 @@ export default class UserController {
   async tryLogin(req: Request, res: Response) {
     const { username, password } = req.body;
     const response = await this.userService.login({username, password});
-    return res.status(200).json(response);
+    return res.status(200).json({ token: response });
   }
 }

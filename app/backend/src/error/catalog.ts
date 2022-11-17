@@ -14,7 +14,7 @@ export type ErrorCatalog = {
 
 export const errorCatalog: ErrorCatalog = {
   InvalidLogin: {
-    error: 'Email or password incorrect',
+    error: 'User or password incorrect',
     httpStatus: 404,
   },
   UserExists: {
