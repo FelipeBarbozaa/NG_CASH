@@ -7,27 +7,19 @@ module.exports = {
         primaryKey: true,
         allowNull: false,
       },
-      debitedAccountId: {
+      debited_account_id: {
         type: Sequelize.STRING(50),
         allowNull: false,
-        references: {
-          model: 'users',
-          key: 'id',
-        }
       },
-      creditedAccountId: {
+      credited_account_id: {
         type: Sequelize.STRING(50),
         allowNull: false,
-        references: {
-          model: 'users',
-          key: 'id',
-        }
       },
       value: {
         type: Sequelize.DECIMAL(10, 2),
         allowNull: false,
       },
-      createdAt: {
+      created_at: {
         type: Sequelize.DATE,
         allowNull: false,
       }

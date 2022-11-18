@@ -21,7 +21,7 @@ export default function Home() {
         <Header />
         <section className="section-balance">
           {balance === null ? (<p className="balance font-noto-sans white">Loading...</p>) : (
-            <p className="balance font-noto-sans white">{balance}</p>
+            <p className="balance font-noto-sans white">R$: {balance}</p>
           )}
         </section>
       </div>

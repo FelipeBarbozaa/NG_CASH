@@ -32,6 +32,7 @@ Transaction.init({
   createdAt: {
     type: DATE,
     allowNull: false,
+    field: 'created_at'
   },
 	}, {
 		sequelize: db,

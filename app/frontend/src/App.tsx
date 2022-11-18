@@ -5,6 +5,7 @@ import Register from './pages/Register';
 import './styles/app.css'
 import Home from './pages/Home';
 import PrivateRoute from './routes/PrivateRoute';
+import Transfer from './pages/Transfer';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         </Route>
         <Route path="/login" element={ <Login /> } />
         <Route path="/register" element={ <Register /> } />
+        <Route path="/transfer" element={ <Transfer /> } />
       </Switch>
   </BrowserRouter>
   );

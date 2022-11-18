@@ -8,6 +8,12 @@
   background-position: center center;
 }
 
+html {
+  background-image: url("../images/background.jpg");
+  background-size: cover;
+  background-position: center center;
+}
+
 .form-login {
   display: flex;
   flex-direction: column;

@@ -7,9 +7,15 @@ module.exports = {
         type: Sequelize.STRING(50) },
       username: { allowNull: false, unique: true, type: Sequelize.STRING(100) },
       password: { allowNull: false, type: Sequelize.STRING(50) },
-      accountId: {
+      account_id: {
         allowNull: false,
-        unique: true, type: Sequelize.STRING(50), field: 'account_id' }
+        unique: true,
+        type: Sequelize.STRING(50),
+        references: {
+          model: 'accounts',
+          key: 'id'
+        },
+      }
     });
   },
   down: async (queryInterface) => {

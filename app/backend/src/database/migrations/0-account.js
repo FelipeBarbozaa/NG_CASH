@@ -6,10 +6,6 @@ module.exports = {
         type: Sequelize.STRING(50),
         primaryKey: true,
         allowNull: false,
-        references: {
-          model: 'users',
-          key: 'account_id',
-        }
       },
       balance: { type: Sequelize.DECIMAL(), allowNull: false }
     });
