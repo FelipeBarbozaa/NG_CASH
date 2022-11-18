@@ -9,7 +9,7 @@ import Token from '../token/token';
 export default class UserService implements IUserService {
   constructor (private model: IUserModel) {}
 
-  async createUser(data: RegisterData): Promise<string> {
+  async createUser(data: RegisterData): Promise<object> {
     const { username, password } = data;
     const checkIfExistsUser = await this.model.getByUser(data.username);
     if (checkIfExistsUser) {
@@ -21,10 +21,10 @@ export default class UserService implements IUserService {
     const token = Token.createToken(
       { id, username, accountId, type: 'authentication' }
     );
-    return token;
+    return { token, id, accountId };
   }
 
-  async login(data: LoginData): Promise<string> {
+  async login(data: LoginData): Promise<object> {
     const { username, password } = data;
     const loginError = new Error(ErrorTypes.InvalidLogin);
     
@@ -35,6 +35,6 @@ export default class UserService implements IUserService {
     const token = Token.createToken(
       {id, username, accountId, type: 'authentication'}
     );
-    return token;
+    return { token, id, accountId };
   }
 }

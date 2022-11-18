@@ -9,12 +9,12 @@ export default class UserController {
     const response = await this.userService.createUser(
       { username, password, repassword }
     );
-    return res.status(201).json({ token: response });
+    return res.status(201).json(response);
   }
 
   async tryLogin(req: Request, res: Response) {
     const { username, password } = req.body;
     const response = await this.userService.login({username, password});
-    return res.status(200).json({ token: response });
+    return res.status(200).json(response);
   }
 }

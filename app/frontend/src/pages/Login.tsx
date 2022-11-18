@@ -21,12 +21,14 @@ export default function Login() {
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
-    const { token } = await tryLogin(loginData)
-    if (!token) {
+    const response = await tryLogin(loginData)
+    if (!response.token) {
       setError(true);
       // aqui criar a mensagem de erro
     } else {
-      localStorage.setItem('token', token)
+      localStorage.setItem('token', response.token)
+      localStorage.setItem('id', response.id);
+      localStorage.setItem('accountId', response.accountId);
       navigate('/');
     }
   };

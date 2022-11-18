@@ -20,6 +20,6 @@ export interface IUserModel {
 }
 
 export interface IUserService {
-  createUser(data: RegisterData): Promise<string>;
-  login(data: LoginData): Promise<string>;
+  createUser(data: RegisterData): Promise<object>;
+  login(data: LoginData): Promise<object>;
 }

@@ -2,6 +2,7 @@ import express from 'express';
 import 'express-async-errors';
 import cors from 'cors';
 import userRouter from './routes/UserRoute';
+import accountRouter from './routes/AccountRoute';
 import errorHandler from './middlewares/error';
 import Token from './token/token';
 
@@ -11,6 +12,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use('/', userRouter);
+app.use('/', accountRouter);
 app.use(errorHandler);
 
 app.post('/validate', async (req, res, next) => {

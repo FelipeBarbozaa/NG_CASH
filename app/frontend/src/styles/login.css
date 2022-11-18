@@ -1,15 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mende+Kikakui&display=swap');
 
-body {
-  background-image: url("../images/background.jpg");
-  background-size: cover;
-  background-position: center center;
-  min-height: 100vh;  
-}
-
 .login-container {
   position: relative;
   min-height: 100vh;
+  background-image: url("../images/background.jpg");
+  background-size: cover;
+  background-position: center center;
 }
 
 .form-login {

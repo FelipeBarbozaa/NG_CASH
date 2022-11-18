@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import tryRegister from '../api/fetchRegister';
 import Input from '../components/Input';
@@ -20,6 +20,8 @@ export default function Register() {
       // aqui criar a mensagem de erro
     } else {
       localStorage.setItem('token', response.token)
+      localStorage.setItem('id', response.id);
+      localStorage.setItem('accountId', response.accountId);
       navigate('/');
     }
   }
@@ -37,7 +39,7 @@ export default function Register() {
   }, [username, password, repassword]);
 
   return (
-    <>
+    <div className="login-container">
       <form className="form-login" onSubmit={(event) => handleSubmit(event) }>
         {error.show ? <p className="font-noto-sans error-message">{error.message}</p> : null}
         <Input className="login-input" type="text" name="username" func={ handleData } />
@@ -46,6 +48,6 @@ export default function Register() {
         <button className="btn draw-border" disabled={ disabled }>Register</button>
         <a href="/login">Login</a>
       </form>
-    </>
+    </div>
   );
 }

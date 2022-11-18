@@ -1,0 +1,27 @@
+.home-background {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.993), rgba(255, 255, 255, 0.76));
+  margin: auto;
+  max-width: 500px;
+  height: 100vh;
+}
+
+.balance {
+  margin-top: 100px;
+  text-align: center;
+}
+
+.section-balance {
+  margin: auto;
+  background-color: black;
+  max-width: 70%;
+  height: 130px;
+  border-radius: 5px;
+}
+
+.white {
+  text-align: center;
+  justify-content: center;
+  color: white;
+  font-size: 2rem;
+  padding-top: 48px;
+}
