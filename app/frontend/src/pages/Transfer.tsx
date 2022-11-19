@@ -8,19 +8,19 @@ export default function Transfer() {
   const [transferData, setTransferData] = useState({ user: '', value: null});
   const { user, value } = transferData;
   const [balance, setBalance] = useState(null);
+  const accountId = localStorage.getItem('accountId') as string;
   
   const handleData = ({ target }: any): void => {
     setTransferData({ ...transferData, [target.name]: target.value})
   };
 
   useEffect(() => {
-    const accountId = localStorage.getItem('accountId') as string;
     const fetchBalance = async () => {
       const response = await getBalance(accountId); 
       return response;
     }
     fetchBalance().then(({ balance }) => setBalance(balance));
-  }, [])
+  }, [accountId])
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();

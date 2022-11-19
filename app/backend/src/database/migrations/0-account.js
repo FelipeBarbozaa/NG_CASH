@@ -7,7 +7,7 @@ module.exports = {
         primaryKey: true,
         allowNull: false,
       },
-      balance: { type: Sequelize.DECIMAL(), allowNull: false }
+      balance: { type: Sequelize.DECIMAL(10, 2), allowNull: false }
     });
   },
   down: async (queryInterface) => {

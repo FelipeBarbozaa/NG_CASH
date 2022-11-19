@@ -13,9 +13,9 @@ export default class UserRepository implements IUserModel {
   }
 
   async createUser(data: RegisterData): Promise<User> {
+    await this.accountModel.create({ id: data.accountId, balance: 100.00 });
     const response = await this.userModel.create(data);
     await Promise.all([response]);
-    await this.accountModel.create({ id: response.accountId, balance: 100.00 });
     return response;
   }
 }

@@ -2,8 +2,8 @@ import { Model, DECIMAL, STRING } from 'sequelize';
 import db from '.';
 
 class Account extends Model {
-  id!: number;
-  balance!: number;
+  id?: number;
+  balance?: number;
 }
 
 Account.init({
@@ -13,7 +13,7 @@ Account.init({
     primaryKey: true,
   },
   balance: {
-    type: DECIMAL(),
+    type: DECIMAL(10, 2),
     allowNull: false,
   }
 }, {

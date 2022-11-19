@@ -1,6 +1,7 @@
 export enum ErrorTypes {
   InvalidLogin = 'InvalidLogin',
-  UserExists = 'UserExists'
+  UserExists = 'UserExists',
+  InsufficientMoney = 'InsufficientMoney'
 }
 
 type ErrorResponseObject = { 
@@ -20,5 +21,9 @@ export const errorCatalog: ErrorCatalog = {
   UserExists: {
     error: 'User already exists',
     httpStatus: 409,
+  },
+  InsufficientMoney: {
+    error: 'You do not have enough money',
+    httpStatus: 400,
   }
 };

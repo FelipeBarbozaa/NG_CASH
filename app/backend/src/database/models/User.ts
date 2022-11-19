@@ -3,10 +3,14 @@ import db from '.';
 import Account from './Account';
 
 class User extends Model {
-  id!: number;
-  username!: string;
-  password!: string;
-  accountId!: string;
+  id?: number;
+  username?: string;
+  password?: string;
+  accountId?: string;
+  accountInfo?: {
+    id: string;
+    balance: number;
+  }
 }
 
 User.init({
