@@ -6,9 +6,6 @@ import accountRouter from './routes/AccountRoute';
 import transactionRouter from './routes/TransactionRouter';
 import errorHandler from './middlewares/error';
 import Token from './token/token';
-import Account from './database/models/Account';
-import User from './database/models/User';
-import Transaction from './database/models/Transaction';
 
 const app = express();
 

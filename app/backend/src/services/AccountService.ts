@@ -16,8 +16,7 @@ export default class AccountService implements IAccountService {
 
   async isMoneySufficient(id: string, value: number): Promise<number> {
     const response = await this.model.getBalance(id);
-
-    if (response?.balance as number < value) {
+    if (Number(response?.balance) < Number(value)) {
       throw new Error(ErrorTypes.InsufficientMoney);
     }
 

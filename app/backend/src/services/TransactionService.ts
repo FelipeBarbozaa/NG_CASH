@@ -1,5 +1,5 @@
-import Transaction from '../database/models/Transaction';
 import {
+  CashOutReturn,
   ITransactionModel,
   ITransactionService,
 } from '../interfaces/Transaction';
@@ -7,8 +7,13 @@ import {
 export default class TransactionService implements ITransactionService {
   constructor(private transcationModel: ITransactionModel) {}
 
-  async getAllById(id: string): Promise<Transaction[]> {
-    const response = await this.transcationModel.getAllById(id);
+  async getCashOutById(id: string): Promise<CashOutReturn[]> {
+    const response = await this.transcationModel.getCashOutById(id);
+    return response;
+  }
+
+  async getCashInById(id: string): Promise<CashOutReturn[]> {
+    const response = await this.transcationModel.getCashInById(id);
     return response;
   }
 }

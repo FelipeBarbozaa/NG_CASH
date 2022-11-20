@@ -7,14 +7,14 @@ module.exports = {
         debited_account_id: '034c9c7c-d490-4f4e-8e4e-0921a7410f0f',
         credited_account_id: '4d80fcf4-ecff-450e-b0a6-ce28389e10f4',
         value: 100,
-        created_at: new Date(),
+        created_at: '19/11/2022 14:54:37',
       },
       {
         id: 'a2026438-ce3d-407a-ad85-96bf7db246ec',
         debited_account_id: '4d80fcf4-ecff-450e-b0a6-ce28389e10f4',
         credited_account_id: '034c9c7c-d490-4f4e-8e4e-0921a7410f0f',
         value: 200,
-        created_at: new Date(),
+        created_at: '20/11/2022 13:13:22',
       }
     ]);
   },

@@ -1,3 +1,4 @@
+import moment from 'moment';
 import Account from '../database/models/Account';
 import Transaction from '../database/models/Transaction';
 import User from '../database/models/User';
@@ -36,7 +37,7 @@ export default class AccountRepository implements IAccountModel {
 
   async createTransaction(data: TransactionData): Promise<void> {
     await this.transactionModel.create(
-      {...data, createdAt: new Date()}
+      {...data, createdAt: moment().format('DD-MM-YYYY HH:mm:ss')}
       );
   }
 }

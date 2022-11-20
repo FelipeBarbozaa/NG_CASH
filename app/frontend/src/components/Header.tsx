@@ -7,7 +7,7 @@ export default function Header() {
         <a className="font-noto-sans" href="/">HOME</a>
         <a className="font-noto-sans" href="/transfer">TRANSFER</a>
         <a className="font-noto-sans" href="/details">DETAILS</a>
-        <a className="font-noto-sans" href="/">EXIT</a>
+        <a onClick={() => {localStorage.clear()}} className="font-noto-sans" href="/">LOGOUT</a>
       </nav>
     </>
   )

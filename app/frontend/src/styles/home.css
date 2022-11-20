@@ -3,6 +3,8 @@
   margin: auto;
   max-width: 500px;
   height: 100vh;
+  overflow-x: hidden;
+
 }
 
 .balance {
@@ -30,4 +32,49 @@
   text-align: center;
   color: red;
   margin-bottom: 10px;
+}
+
+.cash-type {
+  margin-top: 50px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.cash {
+  margin-right: 20px;
+  margin-left: 20px;
+  font-size: 1.5rem;
+  width: 100px;
+  background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	cursor: pointer;
+	outline: inherit;
+  margin-bottom: 50px;
+}
+
+.selected {
+  border-bottom: 3px solid green;
+}
+
+.container-cash {
+  font-size: 1.2rem;
+  margin: auto;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  height: 80px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.loading {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 1.5rem;
+  color: red;
 }

@@ -1,9 +1,16 @@
-import Transaction from '../database/models/Transaction';
+export type CashOutReturn = {
+  id?: string;
+  username?: string;
+  value?: number;
+  createdAt?: Date;
+}
 
 export interface ITransactionModel {
-  getAllById(id: string): Promise<Transaction[]>;
+  getCashOutById(id: string): Promise<CashOutReturn[]>;
+  getCashInById(id: string): Promise<CashOutReturn[]>;
 }
 
 export interface ITransactionService {
-  getAllById(id: string): Promise<Transaction[]>;
+  getCashOutById(id: string): Promise<CashOutReturn[]>;
+  getCashInById(id: string): Promise<CashOutReturn[]>;
 }

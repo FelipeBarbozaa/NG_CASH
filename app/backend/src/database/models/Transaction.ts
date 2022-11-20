@@ -1,4 +1,4 @@
-import { Model, STRING, DATE, DECIMAL } from 'sequelize';
+import { Model, STRING, DECIMAL } from 'sequelize';
 import db from '.';
 
 class Transaction extends Model {
@@ -30,7 +30,7 @@ Transaction.init({
 		allowNull: false,
 	},
   createdAt: {
-    type: DATE,
+    type: STRING(50),
     allowNull: false,
     field: 'created_at'
   },
