@@ -1,5 +1,4 @@
 import Account from '../database/models/Account';
-import User from '../database/models/User';
 
 export type TransferData = {
   debitedAccountId: string;
@@ -17,11 +16,14 @@ export type TransactionData = {
 export interface IAccountModel {
   getBalance(accountId: string): Promise<Account | null>;
   updateBalance(accountId: string, value: number): Promise<void>;
-  getAccountIdByUser(user: string): Promise<User>;
+  getAccountIdByUser(user: string): Promise<Account>;
   createTransaction(data: TransactionData): Promise<void>;
 }
 
 export interface IAccountService {
   getBalance(accountId: string): Promise<Account | null>;
   transfer(data: TransferData): Promise<void>
+  isMoneySufficient(id: string, value: number): Promise<number>
+  getAccountIdByUser(user: string): Promise<Account>;
+
 }

@@ -38,6 +38,6 @@ Transaction.init({
 		sequelize: db,
 		modelName: 'transactions',
 		timestamps: false
-	});
+});
 
 export default Transaction;

@@ -6,7 +6,7 @@
 }
 
 .balance {
-  margin-top: 100px;
+  margin-top: 50px;
   text-align: center;
 }
 
@@ -24,4 +24,10 @@
   color: white;
   font-size: 2rem;
   padding-top: 48px;
+}
+
+.transfer-text {
+  text-align: center;
+  color: red;
+  margin-bottom: 10px;
 }

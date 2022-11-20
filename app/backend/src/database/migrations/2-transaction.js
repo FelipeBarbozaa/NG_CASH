@@ -10,6 +10,10 @@ module.exports = {
       debited_account_id: {
         type: Sequelize.STRING(50),
         allowNull: false,
+        references: {
+          model: 'accounts',
+          key: 'id'
+        },
       },
       credited_account_id: {
         type: Sequelize.STRING(50),

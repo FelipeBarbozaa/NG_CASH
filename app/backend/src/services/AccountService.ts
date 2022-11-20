@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import { v4 as uuidv4 } from 'uuid';
 import Account from '../database/models/Account';
 import { ErrorTypes } from '../error/catalog';
@@ -13,39 +14,51 @@ export default class AccountService implements IAccountService {
     return response;
   }
 
-  // eslint-disable-next-line max-lines-per-function
-  async transfer(data: TransferData): Promise<void> {
-    const response = await this.getBalance(data.debitedAccountId);
+  async isMoneySufficient(id: string, value: number): Promise<number> {
+    const response = await this.model.getBalance(id);
 
-    // Checa se tem dinheiro suficiente
-    const value = response?.balance as number;
-    if (value < data.balance) {
+    if (response?.balance as number < value) {
       throw new Error(ErrorTypes.InsufficientMoney);
     }
 
-    // Pega o id e o balance da conta que vai receber
-    const { accountInfo } = await this
-      .model.getAccountIdByUser(data.creditedAccountUser);
-    console.log(typeof accountInfo?.balance);
+    return response?.balance as number - value;
+  }
 
-    // Tira o saldo de quem fez a transferência
-    await this.model.updateBalance(
-      data.debitedAccountId, value - data.balance
-    );
+  async getAccountIdByUser(user: string): Promise<Account> {
+    const response = await this.model.getAccountIdByUser(user);
+    if (!response) {
+      throw new Error(ErrorTypes.InvalidUser);
+    }
+    return response;
+  }
 
-    // Adiciona o saldo pra quem recebeu a transferência
-    await this.model.updateBalance(
-      accountInfo?.id as string,
-      Number(accountInfo?.balance) + data.balance
-    );
+  static checkSameAccount(account1: string, account2: string) {
+    if (account1 === account2) {
+      throw new Error(ErrorTypes.TransferSameAccount);
+    }
+  }
 
-    // Cria a transação na tabela transactions
+  // eslint-disable-next-line max-lines-per-function
+  async transfer(data: TransferData): Promise<void> {
+    const { debitedAccountId, creditedAccountUser, balance } = data;
 
-    await this.model.createTransaction({
-      id: uuidv4(),
-      debitedAccountId: data.debitedAccountId,
-      creditedAccountId: accountInfo?.id as string,
-      value: data.balance
-    });
+    // Verifica se tem saldo sufuciente na conta e retorna o valor do saldo após a transferência
+    const newDebitedValue = await this.isMoneySufficient(debitedAccountId, balance);
+
+    // Verifica se existe uma conta para qual a pessoa está transferindo, se existir retorna os dados dela.
+    const accountInfo = await this.getAccountIdByUser(creditedAccountUser);
+    const creditedAccountId = accountInfo.id as string;
+
+    // Verifica se as contas são iguais.
+    AccountService.checkSameAccount(debitedAccountId, creditedAccountId);
+    
+    // Tira o dinheiro da pessoa que está trasnferindo
+    await this.model.updateBalance(debitedAccountId, newDebitedValue);
+
+    // Adiciona o dinheiro para a pessoa que está recebendo a transferência
+    await this.model.updateBalance(creditedAccountId, Number(accountInfo.balance) + Number(balance));
+
+    // Registra a transferência no banco de dados
+    await this.model.createTransaction({id: uuidv4(), debitedAccountId, creditedAccountId, value: Number(balance) });
   }
 }

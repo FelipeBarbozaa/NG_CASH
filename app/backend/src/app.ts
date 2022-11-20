@@ -3,8 +3,12 @@ import 'express-async-errors';
 import cors from 'cors';
 import userRouter from './routes/UserRoute';
 import accountRouter from './routes/AccountRoute';
+import transactionRouter from './routes/TransactionRouter';
 import errorHandler from './middlewares/error';
 import Token from './token/token';
+import Account from './database/models/Account';
+import User from './database/models/User';
+import Transaction from './database/models/Transaction';
 
 const app = express();
 
@@ -13,6 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use('/', userRouter);
 app.use('/', accountRouter);
+app.use('/', transactionRouter);
 app.use(errorHandler);
 
 app.post('/validate', async (req, res, next) => {

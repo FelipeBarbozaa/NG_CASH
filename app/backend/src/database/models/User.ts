@@ -3,7 +3,7 @@ import db from '.';
 import Account from './Account';
 
 class User extends Model {
-  id?: number;
+  id?: string;
   username?: string;
   password?: string;
   accountId?: string;
@@ -41,5 +41,6 @@ User.init({
 });
 
 User.belongsTo(Account, { foreignKey: 'accountId', as: 'accountInfo' });
+Account.hasOne(User, { foreignKey: 'accountId', as: 'accountInfo' });
 
 export default User;

@@ -24,13 +24,14 @@ export default class AccountRepository implements IAccountModel {
     );
   }
 
-  async getAccountIdByUser(username: string): Promise<User> {
+  async getAccountIdByUser(username: string): Promise<Account> {
     const response = await this.userModel.findOne(
       { where: { username }, include: [{
         model: Account,
         as: 'accountInfo'
     }]});
-    return response as User;
+    console.log(response?.accountInfo);
+    return response?.accountInfo as unknown as Account;
   }
 
   async createTransaction(data: TransactionData): Promise<void> {

@@ -2,7 +2,7 @@ import { Model, DECIMAL, STRING } from 'sequelize';
 import db from '.';
 
 class Account extends Model {
-  id?: number;
+  id?: string;
   balance?: number;
 }
 

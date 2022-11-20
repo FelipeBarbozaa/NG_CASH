@@ -12,6 +12,6 @@ export default class AccountController {
 
   async transfer(req: Request, res: Response) {
     await this.accountService.transfer(req.body);
-    return res.status(200).end();
+    return res.status(200).json({ message: 'success' });
   }
 }
