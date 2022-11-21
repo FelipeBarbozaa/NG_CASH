@@ -15,5 +15,8 @@ npm_config_loglevel=silent npm i --prefix ${backFolder} --cache $cacheFolderBack
 printf "\n> Subindo os containers\n"
 npm_config_loglevel=silent npm run compose:up
 
+printf "\n> Fazendo o build do TypeScript\n"
+npm_config_loglevel=silent npm run build
+
 printf "\n> Criando um banco de dados e populando\n"
 npm_config_loglevel=silent npm run db:reset
