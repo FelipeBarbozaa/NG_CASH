@@ -31,7 +31,6 @@ export default class AccountRepository implements IAccountModel {
         model: Account,
         as: 'accountInfo'
     }]});
-    console.log(response?.accountInfo);
     return response?.accountInfo as unknown as Account;
   }
 
