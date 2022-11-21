@@ -52,7 +52,7 @@ export default function Details() {
         { loading === 0 ? <p className="font-noto-sans loading">Loading...</p> : null}
         { loading === 1 ? <p className="font-noto-sans loading">no transaction here</p> : null}
         {transactions.map((transaction: any) => (
-          <div className="container-cash">
+          <div className="container-cash" key={transaction.id}>
             { type === 'cashIn' ? (
               <p className="fonto-noto-sans">from: {transaction.username}</p>
             ): (
