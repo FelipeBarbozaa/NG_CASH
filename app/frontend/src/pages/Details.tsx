@@ -32,8 +32,6 @@ export default function Details() {
     getTransactions().then((response) => setTransactions(response));
   }, [type])
 
-  console.log(transactions);
-
   const handleCss = ({ target: { name }}: any) => {
     if (name === 'cashIn') {
       setType('cashIn');
@@ -55,7 +53,11 @@ export default function Details() {
         { loading === 1 ? <p className="font-noto-sans loading">no transaction here</p> : null}
         {transactions.map((transaction: any) => (
           <div className="container-cash">
-            <p className="fonto-noto-sans">to: {transaction.username}</p>
+            { type === 'cashIn' ? (
+              <p className="fonto-noto-sans">from: {transaction.username}</p>
+            ): (
+              <p className="fonto-noto-sans">to: {transaction.username}</p>
+            )}
             <p className="fonto-noto-sans">value: {transaction.value}</p>
             <p className="fonto-noto-sans">date: {transaction.createdAt}</p>
           </div>
