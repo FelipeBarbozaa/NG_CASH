@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "install:apps": "./apps_install.sh",
     "prestart:front": "(cd ./app/frontend && npm install)",
     "prestart:back": "(cd ./app/backend && npm install)",
     "compose:up": "(cd app && docker-compose -f docker-compose.dev.yml up -d --build)",
